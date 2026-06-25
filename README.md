@@ -1,4 +1,4 @@
-# Project Standards
+# SKILLS
 
 A collection of reusable architecture, project structure, and AI collaboration standards used across my software projects.
 
