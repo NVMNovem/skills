@@ -1,6 +1,6 @@
 # PROJECT_STRUCTURE.md
 
-This document describes the preferred project structure for Damian’s Swift projects.
+This document describes the preferred project structure for Swift projects created and/or maintained by Novem.
 
 It is intended for human contributors and AI coding agents. Read this before moving files, creating new folders, or deciding where new code belongs.
 
