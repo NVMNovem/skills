@@ -86,6 +86,55 @@ Follow these conventions:
 - Keep builders that conform to the same content protocol together, even when
   different views or features consume them.
 
+### Keep composition policy at the call site
+
+Do not move every modifier into an extracted content-builder type. Keep a
+modifier inside the builder only when it is intrinsic to that component and
+should apply everywhere the component is used. This includes the tab's value,
+label, destination, navigation behavior, and stable `customizationID`.
+
+Keep modifiers at the call site when they control how the component
+participates in its enclosing `TabView`, `TabSection`, or toolbar; depend on
+layout or state owned by the parent; or may vary between placements. Examples
+include:
+
+- `defaultVisibility(_:for:)`
+- conditional `hidden(_:)`
+- `customizationBehavior(_:for:)`
+- badges and their accessibility values when their data belongs to the parent
+- modifiers applied to a surrounding `TabSection`
+
+For example, `AccountTab` owns its stable tab identity, while the parent owns
+the size-class-dependent visibility policy:
+
+```swift
+// AccountTab.swift
+struct AccountTab: TabContent {
+    var body: some TabContent<NVMNavigation> {
+        Tab(value: NVMNavigation.account) {
+            AccountView()
+        } label: {
+            NVMNavigation.account.label()
+        }
+        .customizationID("Tab.\(NVMNavigation.account.id)")
+    }
+}
+```
+
+```swift
+// Parent TabView composition
+AccountTab()
+    .defaultVisibility(.hidden, for: .tabBar)
+    .hidden(!(horizontalSizeClass == .regular && verticalSizeClass == .regular))
+
+CartTab(homeNavigation: $homeNavigation)
+    .badge(orderProductCount)
+    .accessibilityValue(orderProductCountAccessibilityValue)
+```
+
+When extracting a builder, preserve call-site modifiers unless they clearly
+describe behavior that is invariant and owned by the extracted component.
+
 The declaration should make the grouping explicit:
 
 ```swift
