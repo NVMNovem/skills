@@ -1,138 +1,52 @@
-# SKILLS
+# Novem Skills
 
-A collection of reusable architecture, project structure, and AI collaboration standards used across my software projects.
+A growing collection of reusable skills for working on Novem projects.
 
-Instead of rewriting the same architectural decisions for every repository, this project contains reusable documentation that both humans and AI coding assistants can follow.
+This repository brings together the conventions, workflows, and practical knowledge that guide our work. Each skill captures a specific area of expertise in a format an AI coding assistant can follow, helping turn shared knowledge into consistent results across projects.
 
-The goal is consistency.
+## What is a skill?
 
----
+A skill is a focused set of instructions for a particular type of task. Its `SKILL.md` explains when to use it, how to approach the work, and which requirements to follow. Supporting files can provide references, examples, assets, or scripts when needed.
 
-## Philosophy
+Skills can cover different subjects, from design and development to documentation, project setup, and recurring workflows. This collection will expand as new needs and practices emerge.
 
-Good software is not only about writing correct code.
+## Available skills
 
-It is also about:
+| Skill | Purpose | Status |
+| --- | --- | --- |
+| [Novem README](novem-readme/SKILL.md) | Create or revise practical, repository-grounded README files for Novem software projects. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
+| [Novem Architecture](novem-architecture/SKILL.md) | Apply Novem's Swift architecture and naming conventions when writing or reviewing application code. | ![Ready to use](https://img.shields.io/badge/status-ready%20to%20use-2ea44f) |
 
-- consistent project organization
-- clear architectural boundaries
-- predictable naming
-- reusable conventions
-- AI-assisted development without losing design consistency
+## Using a skill
 
-These documents describe those conventions.
+Choose the skill that matches your task and point your assistant to its `SKILL.md`. Include the project context, desired outcome, and any specific constraints so the instructions can be applied to your situation.
 
----
+For example, this prompt applies the README skill to a project:
 
-## Current Documents
+```text
+Use the skill at `novem-readme/SKILL.md` to update this project's README.
+Document the verified setup and normal usage path, and preserve correct existing content.
+```
 
-### PROJECT_STRUCTURE.md
+Each skill defines its own scope. Check its instructions and supporting resources before applying it to a new project.
 
-Defines how projects should be organized.
+## Repository structure
 
-Topics include:
+Each skill lives in its own folder at the repository root:
 
-- Backend vs Frontend
-- folder responsibilities
-- naming conventions
-- module extraction
-- file organization
-- package boundaries
-- recommended refactoring workflow
-- AI structural guidelines
+```text
+skills/
+|-- README.md
+`-- <skill-name>/
+    |-- SKILL.md
+    |-- references/    # Optional supporting documentation
+    |-- examples/      # Optional examples
+    |-- assets/        # Optional files used by the skill
+    `-- scripts/       # Optional helper scripts
+```
 
----
+## Adding a skill
 
-## Planned Documents
+Create a folder with a descriptive name and add a `SKILL.md` that clearly states the skill's purpose, when it applies, and the steps or standards to follow. Keep the main instructions focused and place detailed supporting material in the appropriate subfolders.
 
-This repository will gradually grow with additional reusable documents.
-
-Examples include:
-
-### ARCHITECTURE.md
-
-General architectural principles independent of any specific project.
-
-Examples:
-
-- separation of responsibilities
-- package ownership
-- dependency direction
-- rendering pipelines
-- state management
-
----
-
-### AI_GUIDELINES.md
-
-General instructions for AI coding assistants.
-
-Examples:
-
-- how to approach refactors
-- how to preserve architecture
-- when to stop and ask questions
-- how to introduce new abstractions
-- testing expectations
-
----
-
-### NAMING.md
-
-Naming conventions.
-
-Examples:
-
-- folders
-- files
-- modules
-- protocols
-- extensions
-- generic types
-- Swift packages
-
----
-
-### DOCUMENTATION.md
-
-Documentation conventions.
-
-Examples:
-
-- DocC
-- Markdown
-- architecture documents
-- code comments
-
----
-
-### TESTING.md
-
-Testing philosophy.
-
-Examples:
-
-- unit tests
-- regression tests
-- architecture tests
-- snapshot tests
-
----
-
-### RELEASE.md
-
-Release workflow.
-
-Examples:
-
-- versioning
-- changelogs
-- migration notes
-
----
-
-## Goal
-
-Every new project should be able to reuse these documents with little or no modification.
-
-The objective is to make both human contributors and AI coding assistants follow the same architectural language across every repository.
+Add the skill to the table above so others can discover it. Keep instructions actionable, examples relevant, and references up to date as the collection grows.
