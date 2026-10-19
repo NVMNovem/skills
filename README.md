@@ -14,15 +14,29 @@ Skills can cover different subjects, from design and development to documentatio
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
+| [Novem README](novem-readme/SKILL.md) | Create or revise practical, repository-grounded README files for Novem software projects. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
 | [Novem Architecture](novem-architecture/SKILL.md) | Apply Novem's Swift architecture and naming conventions when writing or reviewing application code. | ![Ready to use](https://img.shields.io/badge/status-ready%20to%20use-2ea44f) |
 
 ## Usage
 
 Choose a skill below and copy its prompt into your AI assistant. Replace the bracketed task with your desired outcome, project context, and any specific constraints. Each skill has its own heading so you can link directly to its usage section on GitHub.
 
+### README
+
+This skill is a starter and is not ready for general use yet. Use this prompt to try it when creating or updating a project's README.
+
+```text
+Read and follow the Novem README skill:
+https://github.com/NVMNovem/skills/blob/main/novem-readme/SKILL.md
+
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Ground the README in the repository's actual setup and usage, and preserve correct existing content.
+
+Task: [Describe the project and what to create or update in its README.]
+```
+
 ### Architecture
 
-Use this prompt when writing or reviewing Swift application code with Novem's architecture and naming conventions. [Link to this section](#architecture).
+Use this prompt when writing or reviewing Swift application code with Novem's architecture and naming conventions.
 
 ```text
 Read and follow the Novem Architecture skill:
