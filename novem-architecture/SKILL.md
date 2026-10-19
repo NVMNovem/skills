@@ -5,6 +5,11 @@ description: Apply Novem's Swift architecture and naming conventions when writin
 
 # Novem Architecture
 
+Use the references relevant to the code being changed. Existing projects may
+lag behind these conventions. When conflicting patterns leave the intended
+preference unclear, ask before establishing a new rule. Examples use generic
+names; preserve persisted identifiers when applying naming changes.
+
 ## Folder structure and file naming
 
 Use `Backend/` and `Frontend/` inside each module folder. Put models, data
@@ -150,6 +155,42 @@ struct CartTab: TabContent {
     }
 }
 ```
+
+## State and dependencies
+
+Name shared observable dependencies `Manager`, create them at their app,
+scene, or root owner, and inject them through custom environment keys. When
+deciding ownership, bindings, or registration, read
+[State and dependencies](references/state-and-dependencies.md).
+
+## View modifiers
+
+Expose reusable view modifiers through readable `View` extensions, with
+implementation types scoped to their file. When adding or changing these
+APIs, read [View modifiers](references/view-modifiers.md).
+
+## Model extensions
+
+Group model-specific helpers by responsibility under the model's namespace.
+When adding predicates, fetch descriptors, or mock data, read
+[Model extensions](references/model-extensions.md).
+
+## Settings
+
+Keep settings keys and defaults grouped by domain, preserving persisted keys.
+When adding or changing preferences, read [Settings](references/settings.md).
+
+## Navigation
+
+Keep navigation cases, identity, and shared metadata together, with view
+construction in frontend extensions. When changing routes or selection,
+read [Navigation](references/navigation.md).
+
+## Localization
+
+Use named localization tables for new user-facing text, grouped by the owning
+type or feature. For resource lookup and text APIs, read
+[Localization](references/localization.md).
 
 ## Content builders
 
