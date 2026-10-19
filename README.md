@@ -14,21 +14,24 @@ Skills can cover different subjects, from design and development to documentatio
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
-| [Novem README](novem-readme/SKILL.md) | Create or revise practical, repository-grounded README files for Novem software projects. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
 | [Novem Architecture](novem-architecture/SKILL.md) | Apply Novem's Swift architecture and naming conventions when writing or reviewing application code. | ![Ready to use](https://img.shields.io/badge/status-ready%20to%20use-2ea44f) |
 
-## Using a skill
+## Usage
 
-Choose the skill that matches your task and point your assistant to its `SKILL.md`. Include the project context, desired outcome, and any specific constraints so the instructions can be applied to your situation.
+Choose a skill below and copy its prompt into your AI assistant. Replace the bracketed task with your desired outcome, project context, and any specific constraints. Each skill has its own heading so you can link directly to its usage section on GitHub.
 
-For example, this prompt applies the README skill to a project:
+### Architecture
+
+Use this prompt when writing or reviewing Swift application code with Novem's architecture and naming conventions. [Link to this section](#architecture).
 
 ```text
-Use the skill at `novem-readme/SKILL.md` to update this project's README.
-Document the verified setup and normal usage path, and preserve correct existing content.
-```
+Read and follow the Novem Architecture skill:
+https://github.com/NVMNovem/skills/blob/main/novem-architecture/SKILL.md
 
-Each skill defines its own scope. Check its instructions and supporting resources before applying it to a new project.
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Apply the skill's Swift architecture and naming conventions to the code you write or review. Preserve persisted identifiers, and ask for clarification when conflicting project patterns leave the intended convention unclear.
+
+Task: [Describe what to build, change, or review in this project.]
+```
 
 ## Repository structure
 
@@ -49,4 +52,4 @@ skills/
 
 Create a folder with a descriptive name and add a `SKILL.md` that clearly states the skill's purpose, when it applies, and the steps or standards to follow. Keep the main instructions focused and place detailed supporting material in the appropriate subfolders.
 
-Add the skill to the table above so others can discover it. Keep instructions actionable, examples relevant, and references up to date as the collection grows.
+Add the skill to the table above and give it a subsection under Usage with a copyable prompt that links to its `SKILL.md` on GitHub. Keep instructions actionable, examples relevant, and references up to date as the collection grows.
