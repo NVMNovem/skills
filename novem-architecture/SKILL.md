@@ -5,6 +5,109 @@ description: Apply Novem's Swift architecture and naming conventions when writin
 
 # Novem Architecture
 
+## Folder structure and file naming
+
+Use `Backend/` and `Frontend/` inside each module folder. Put models, data
+processing, state, and other non-UI code in `Backend/`; put views, UI
+composition, and presentation behavior in `Frontend/`.
+Group files by role first, then add domain or type subfolders when useful.
+
+This representative overview uses `MyModule` as the module name. Add folders
+as needed for the module's code rather than creating every category in advance:
+
+```text
+MyModule/
+├── Backend/
+│   ├── Attributes/
+│   │   ├── PropertyWrappers/
+│   │   └── ResultBuilders/
+│   ├── Conformances/
+│   │   └── Styles/
+│   │       └── FormatStyles/
+│   │           └── PriceStyle.swift
+│   ├── Extensions/
+│   │   ├── Calendar.swift
+│   │   └── Models/
+│   │       └── Catalog/
+│   │           └── Product/
+│   │               ├── Product+FetchDescriptor.swift
+│   │               └── Product+Predicate.swift
+│   ├── Managers/
+│   │   └── NavigationManager.swift
+│   ├── Models/
+│   │   ├── Catalog/
+│   │   │   └── Product.swift
+│   │   └── Cart/
+│   │       └── CartState.swift
+│   ├── Navigation/
+│   │   └── MyModuleNavigation.swift
+│   ├── Protocols/
+│   │   └── Models/
+│   │       └── CartModel.swift
+│   └── Types/
+│       └── ProductCategory.swift
+└── Frontend/
+    ├── Commands/
+    │   └── SearchCommands.swift
+    ├── Conformances/
+    │   └── Styles/
+    │       └── GroupBoxStyles/
+    │           └── ConfigurationStyle.swift
+    ├── Extensions/
+    │   └── TextField.swift
+    ├── Navigation/
+    │   └── MyModuleNavigation/
+    │       └── MyModuleNavigation+UI.swift
+    ├── TabContent/
+    │   ├── HomeTab.swift
+    │   ├── CartTab.swift
+    │   └── SearchTab.swift
+    ├── ToolbarContent/
+    │   └── DismissToolbar.swift
+    ├── ViewModifiers/
+    │   └── ActionsModifier.swift
+    └── Views/
+        ├── ContentView.swift
+        ├── Content/
+        │   ├── HomeView.swift
+        │   ├── CartView.swift
+        │   └── SearchView.swift
+        └── Settings/
+            ├── SettingsView.swift
+            └── Settings_General.swift
+```
+
+Follow these naming and placement conventions:
+
+- Use descriptive folder names with the casing shown above. Use plural role
+  names such as `Models`, `Managers`, `Protocols`, `Views`, and `ViewModifiers`;
+  retain protocol names for `TabContent` and `ToolbarContent`.
+- Name a Swift file after its primary type, preserving the type's casing and
+  existing project prefixes, such as `Product.swift` or `SettingsView.swift`.
+  Use names that express the type's role, such as `NavigationManager`,
+  `MyModuleNavigation`, `SearchCommands`, and `DismissToolbar`.
+- Keep related domain types together, such as `Models/Cart/` or
+  `Views/Settings/`. Follow established naming families within those groups,
+  such as `Settings_General.swift` for a settings section.
+- Put views composed directly by `ContentView` in `Frontend/Views/Content/`,
+  keeping `ContentView.swift` at the `Views/` root. For a `TabView`, this includes
+  each tab's destination view, such as `HomeView`, `CartView`, and `SearchView`,
+  even when an extracted `TabContent` builder composes it. Apply the same rule
+  to direct child views in other kinds of `ContentView` composition. Keep the
+  tab builders themselves in `Frontend/TabContent/`.
+- Put extensions in the relevant layer. A general extension can use the
+  extended type's name, such as `Extensions/Calendar.swift`. For extensions
+  split by responsibility, use `Type+Responsibility.swift`, such as
+  `Product+Predicate.swift` and `Product+FetchDescriptor.swift`.
+- Group multiple extensions of a type in a folder named after that type;
+  mirror its role and domain grouping when helpful, as in
+  `Extensions/Models/Catalog/Product/`.
+- Keep navigation definitions in `Backend/Navigation/` and their UI-specific
+  extensions in `Frontend/Navigation/`, as illustrated above.
+- Use `Conformances/` for concrete protocol implementations, such as format
+  styles in the backend and view styles in the frontend. Use `Extensions/`
+  for additions to existing types.
+
 ## Initializer parameter names
 
 Choose initializer argument labels for readability rather than copying private
@@ -50,97 +153,7 @@ struct CartTab: TabContent {
 
 ## Content builders
 
-Organize focused types that conform to a SwiftUI content protocol by the kind
-of content they build. Group them by protocol rather than by the screen that
-uses them:
-
-This extraction rule is intentionally limited to `TabContent` and
-`ToolbarContent`. Put conforming types in separate files, but do not
-automatically extract other kinds of content builders. Keep them where they
-are unless their protocol is explicitly added to this convention later.
-
-```text
-Frontend/
-├── TabContent/
-│   ├── HomeTab.swift
-│   ├── CartTab.swift
-│   └── SearchTab.swift
-└── ToolbarContent/
-    ├── CountryToolbar.swift
-    └── DismissToolbar.swift
-```
-
-Follow these conventions:
-
-- Apply the separate-file convention only to `TabContent` and
-  `ToolbarContent` for now.
-- Name the folder after the content protocol, including its `Content` suffix:
-  `TabContent` and `ToolbarContent`.
-- Keep one primary content-builder type per file and give the file the same
-  name as that type.
-- Name the type for its semantic role plus the shorter component kind, such as
-  `HomeTab`, `CartTab`, `CountryToolbar`, or `DismissToolbar`.
-- Omit a redundant `Content` suffix from the type name. The folder and protocol
-  conformance already establish that context: prefer `HomeTab` over
-  `HomeTabContent` and `CountryToolbar` over `CountryToolbarContent`.
-- Keep builders that conform to the same content protocol together, even when
-  different views or features consume them.
-
-### Keep composition policy at the call site
-
-Do not move every modifier into an extracted content-builder type. Keep a
-modifier inside the builder only when it is intrinsic to that component and
-should apply everywhere the component is used. This includes the tab's value,
-label, destination, navigation behavior, and stable `customizationID`.
-
-Keep modifiers at the call site when they control how the component
-participates in its enclosing `TabView`, `TabSection`, or toolbar; depend on
-layout or state owned by the parent; or may vary between placements. Examples
-include:
-
-- `defaultVisibility(_:for:)`
-- conditional `hidden(_:)`
-- `customizationBehavior(_:for:)`
-- badges and their accessibility values when their data belongs to the parent
-- modifiers applied to a surrounding `TabSection`
-
-For example, `AccountTab` owns its stable tab identity, while the parent owns
-the size-class-dependent visibility policy:
-
-```swift
-// AccountTab.swift
-struct AccountTab: TabContent {
-    var body: some TabContent<NVMNavigation> {
-        Tab(value: NVMNavigation.account) {
-            AccountView()
-        } label: {
-            NVMNavigation.account.label()
-        }
-        .customizationID("Tab.\(NVMNavigation.account.id)")
-    }
-}
-```
-
-```swift
-// Parent TabView composition
-AccountTab()
-    .defaultVisibility(.hidden, for: .tabBar)
-    .hidden(!(horizontalSizeClass == .regular && verticalSizeClass == .regular))
-
-CartTab(homeNavigation: $homeNavigation)
-    .badge(orderProductCount)
-    .accessibilityValue(orderProductCountAccessibilityValue)
-```
-
-When extracting a builder, preserve call-site modifiers unless they clearly
-describe behavior that is invariant and owned by the extracted component.
-
-The declaration should make the grouping explicit:
-
-```swift
-struct CountryToolbar: ToolbarContent {
-    var body: some ToolbarContent {
-        // ...
-    }
-}
-```
+When creating, extracting, or reviewing `TabContent` or `ToolbarContent` types,
+read [Content builders](references/content-builders.md) for grouping, naming,
+and modifier ownership conventions. The extraction rule is limited to those
+two protocols.
