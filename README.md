@@ -56,7 +56,7 @@ This skill is a starter and is not ready for general use yet. Use this prompt to
 Read and follow the Novem Skills skill:
 https://github.com/NVMNovem/skills/blob/main/novem-skills/SKILL.md
 
-Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Follow the repository's skill structure and writing conventions, and keep its README listing and alphabetical Usage sections in sync.
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Follow the repository's skill structure and writing conventions. Whenever creating or editing a skill, also update its usage example under Usage in the repository's README, keeping the skill listing in sync and Usage subsections alphabetical.
 
 Task: [Describe the skill to create or update and the conventions it should capture.]
 ```

@@ -38,6 +38,10 @@ A simple starter can consist of `SKILL.md` alone.
 
 ## Keep the repository README in sync
 
+Whenever creating or editing a skill, also edit the repository's `README.md`
+to add or update that skill's usage example under Usage. Keep the example
+aligned with the skill's current scope and instructions.
+
 Add or update the skill's entry in the Available skills table, with a relative
 link to its `SKILL.md`, a purpose matching its description, and a status badge.
 Use the existing Not ready badge for a new starter. Preserve an existing
