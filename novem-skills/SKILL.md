@@ -58,3 +58,18 @@ the README's purpose, status, and usage prompt agree with the skill. Ensure
 Usage subsections remain alphabetical and starters contain useful guidance
 rather than unfinished scaffold text. Run an available skill validator when
 possible and report any validation limits.
+
+## Help this skill evolve
+
+While working in this repository, look for useful additions or corrections to
+`novem-skills`: recurring patterns across skills, missing guidance, outdated
+instructions, or lessons that would make future skill work more consistent.
+
+When an improvement would help, suggest it in the completion report. Explain
+what prompted it, why it belongs in this shared skill, and propose concise
+wording or a supporting reference. Keep project-specific details in the
+relevant skill rather than turning them into repository-wide conventions.
+
+Apply improvements when updating this skill is within the task's scope;
+otherwise present them as suggestions. Prefer focused changes grounded in
+actual work, and skip suggestions when there is no useful change to propose.
