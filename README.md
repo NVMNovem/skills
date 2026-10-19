@@ -14,8 +14,9 @@ Skills can cover different subjects, from design and development to documentatio
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
-| [Novem README](novem-readme/SKILL.md) | Create or revise practical, repository-grounded README files for Novem software projects. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
 | [Novem Architecture](novem-architecture/SKILL.md) | Apply Novem's Swift architecture and naming conventions when writing or reviewing application code. | ![Ready to use](https://img.shields.io/badge/status-ready%20to%20use-2ea44f) |
+| [Novem README](novem-readme/SKILL.md) | Create or revise practical, repository-grounded README files for Novem software projects. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
+| [Novem Skills](novem-skills/SKILL.md) | Create or update reusable skills in the Novem skills repository, including their references and README usage prompts. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
 
 ## Usage
 
@@ -45,6 +46,19 @@ https://github.com/NVMNovem/skills/blob/main/novem-readme/SKILL.md
 Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Ground the README in the repository's actual setup and usage, and preserve correct existing content.
 
 Task: [Describe the project and what to create or update in its README.]
+```
+
+### Skills
+
+This skill is a starter and is not ready for general use yet. Use this prompt to try it when creating or updating a skill in this repository.
+
+```text
+Read and follow the Novem Skills skill:
+https://github.com/NVMNovem/skills/blob/main/novem-skills/SKILL.md
+
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Follow the repository's skill structure and writing conventions, and keep its README listing and alphabetical Usage sections in sync.
+
+Task: [Describe the skill to create or update and the conventions it should capture.]
 ```
 
 ## Repository structure
