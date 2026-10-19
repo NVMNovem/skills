@@ -21,19 +21,6 @@ Skills can cover different subjects, from design and development to documentatio
 
 Choose a skill below and copy its prompt into your AI assistant. Replace the bracketed task with your desired outcome, project context, and any specific constraints. Each skill has its own heading so you can link directly to its usage section on GitHub.
 
-### README
-
-This skill is a starter and is not ready for general use yet. Use this prompt to try it when creating or updating a project's README.
-
-```text
-Read and follow the Novem README skill:
-https://github.com/NVMNovem/skills/blob/main/novem-readme/SKILL.md
-
-Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Ground the README in the repository's actual setup and usage, and preserve correct existing content.
-
-Task: [Describe the project and what to create or update in its README.]
-```
-
 ### Architecture
 
 Use this prompt when writing or reviewing Swift application code with Novem's architecture and naming conventions.
@@ -45,6 +32,19 @@ https://github.com/NVMNovem/skills/blob/main/novem-architecture/SKILL.md
 Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Apply the skill's Swift architecture and naming conventions to the code you write or review. Preserve persisted identifiers, and ask for clarification when conflicting project patterns leave the intended convention unclear.
 
 Task: [Describe what to build, change, or review in this project.]
+```
+
+### README
+
+This skill is a starter and is not ready for general use yet. Use this prompt to try it when creating or updating a project's README.
+
+```text
+Read and follow the Novem README skill:
+https://github.com/NVMNovem/skills/blob/main/novem-readme/SKILL.md
+
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Ground the README in the repository's actual setup and usage, and preserve correct existing content.
+
+Task: [Describe the project and what to create or update in its README.]
 ```
 
 ## Repository structure
