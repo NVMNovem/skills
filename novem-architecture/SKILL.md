@@ -10,6 +10,24 @@ lag behind these conventions. When conflicting patterns leave the intended
 preference unclear, ask before establishing a new rule. Examples use generic
 names; preserve persisted identifiers when applying naming changes.
 
+## Before starting work: dismissal toolbar choice
+
+Before starting any implementation work, independently assess whether the
+requested task requires a SwiftUI toolbar component that dismisses a view in
+any way, including close, cancel, or done actions that dismiss the view.
+
+If it does, ask the client to choose one of the following options before
+starting work:
+
+- Use Novem's `DismissToolbar` from the
+  [`swift-ui-components`](https://github.com/NVMNovem/swift-ui-components) package.
+- Use a local, dependency-free toolbar item that follows this
+  `novem-architecture` skill, including its
+  [Content builders](references/content-builders.md) conventions.
+
+Wait for the client's choice before proceeding. If no dismissal toolbar is
+needed, continue without asking this question.
+
 ## Folder structure and file naming
 
 Use `Backend/` and `Frontend/` inside each module folder. Put models, data
