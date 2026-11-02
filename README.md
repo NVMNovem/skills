@@ -24,13 +24,13 @@ Choose a skill below and copy its prompt into your AI assistant. Replace the bra
 
 ### Architecture
 
-Use this prompt when writing or reviewing Swift application code and tests with Novem's architecture and naming conventions, including test folders and filenames that mirror the tested module.
+Use this prompt when writing or reviewing Swift application code and tests with Novem's architecture and naming conventions, including test folders and localization resource paths that mirror their owning modules and components.
 
 ```text
 Read and follow the Novem Architecture skill:
 https://github.com/NVMNovem/skills/blob/main/novem-architecture/SKILL.md
 
-Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Apply the skill's Swift architecture and naming conventions to the code and tests you write or review. Mirror each tested module's folder tree in its test module and append Tests to corresponding source filenames. Preserve persisted identifiers, and ask for clarification when conflicting project patterns leave the intended convention unclear.
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Apply the skill's Swift architecture and naming conventions to the code and tests you write or review. Mirror each tested module's folder tree in its test module and append Tests to corresponding source filenames. Place localization catalogs under Resources using the owning component's relative folder path and table name. Preserve persisted identifiers, and ask for clarification when conflicting project patterns leave the intended convention unclear.
 
 Task: [Describe what to build, change, or review in this project.]
 ```

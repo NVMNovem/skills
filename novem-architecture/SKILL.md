@@ -113,6 +113,19 @@ Follow these naming and placement conventions:
   styles in the backend and view styles in the frontend. Use `Extensions/`
   for additions to existing types.
 
+### Localization
+
+Place localization catalogs under `Resources/` inside the owning module and
+mirror the owning type or feature's relative folder tree. Preserve layer,
+role, domain, and type folders. Name the catalog after its localization table,
+such as `Frontend/ToolbarContent/DismissToolbar.swift` mapping to
+`Resources/Frontend/ToolbarContent/DismissToolbar.xcstrings`.
+
+Keep all language translations for a table in the same catalog. When adding,
+moving, or naming localization resources, read
+[Localization](references/localization.md) for ownership, mirrored paths,
+Swift package configuration, and bundle lookup guidance.
+
 ### Tests
 
 Name the test module `<ModuleName>Tests` and mirror the tested module's
