@@ -14,7 +14,7 @@ Skills can cover different subjects, from design and development to documentatio
 
 | Skill | Purpose | Status |
 | --- | --- | --- |
-| [Novem Architecture](novem-architecture/SKILL.md) | Apply Novem's Swift architecture and naming conventions when writing or reviewing application code. | ![Ready to use](https://img.shields.io/badge/status-ready%20to%20use-2ea44f) |
+| [Novem Architecture](novem-architecture/SKILL.md) | Apply Novem's Swift architecture and naming conventions when writing or reviewing application code and tests. | ![Ready to use](https://img.shields.io/badge/status-ready%20to%20use-2ea44f) |
 | [Novem README](novem-readme/SKILL.md) | Create or revise practical, repository-grounded README files for Novem software projects. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
 | [Novem Skills](novem-skills/SKILL.md) | Create or update reusable skills in the Novem skills repository, including their references and README usage prompts. | ![Not ready](https://img.shields.io/badge/status-not%20ready-d97706) |
 
@@ -24,13 +24,13 @@ Choose a skill below and copy its prompt into your AI assistant. Replace the bra
 
 ### Architecture
 
-Use this prompt when writing or reviewing Swift application code with Novem's architecture and naming conventions.
+Use this prompt when writing or reviewing Swift application code and tests with Novem's architecture and naming conventions, including test folders and filenames that mirror the tested module.
 
 ```text
 Read and follow the Novem Architecture skill:
 https://github.com/NVMNovem/skills/blob/main/novem-architecture/SKILL.md
 
-Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Apply the skill's Swift architecture and naming conventions to the code you write or review. Preserve persisted identifiers, and ask for clarification when conflicting project patterns leave the intended convention unclear.
+Also read the linked reference files relevant to the task, resolving their paths relative to the skill's folder on GitHub. Apply the skill's Swift architecture and naming conventions to the code and tests you write or review. Mirror each tested module's folder tree in its test module and append Tests to corresponding source filenames. Preserve persisted identifiers, and ask for clarification when conflicting project patterns leave the intended convention unclear.
 
 Task: [Describe what to build, change, or review in this project.]
 ```

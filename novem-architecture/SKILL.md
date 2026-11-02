@@ -1,6 +1,6 @@
 ---
 name: novem-architecture
-description: Apply Novem's Swift architecture and naming conventions when writing or reviewing application code.
+description: Apply Novem's Swift architecture and naming conventions when writing or reviewing application code and tests.
 ---
 
 # Novem Architecture
@@ -112,6 +112,19 @@ Follow these naming and placement conventions:
 - Use `Conformances/` for concrete protocol implementations, such as format
   styles in the backend and view styles in the frontend. Use `Extensions/`
   for additions to existing types.
+
+### Tests
+
+Name the test module `<ModuleName>Tests` and mirror the tested module's
+relative folder tree inside it, including `Backend/`, `Frontend/`, and any
+role, domain, or type subfolders. Name each corresponding test file after
+its source file with `Tests` appended before `.swift`. For example,
+`Backend/Types/ProductCategory.swift` maps to
+`Backend/Types/ProductCategoryTests.swift` inside the test module.
+
+When creating, moving, or naming tests, read
+[Tests](references/tests.md)
+for the source-to-test mapping and extension naming examples.
 
 ## Initializer parameter names
 
